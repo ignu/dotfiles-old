@@ -1,0 +1,19 @@
+# SYSTEM
+alias cpu='top -o cpu'
+alias mem='top -o vsize'
+alias ..="cd .."
+
+# RUBY
+alias gemi="sudo gem install --no-rdoc --no-ri"
+
+# GIT
+alias g='git status'
+alias gmb='git checkout -b'
+alias reload="source ~/bin/dotfiles/bashrc"
+function gc() {
+  git commit -v -a -m "$*"
+}
+function gbt() {
+  git checkout --track $2 $1/$2
+}
+
