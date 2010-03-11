@@ -11,6 +11,9 @@ alias gemi="sudo gem install --no-rdoc --no-ri"
 alias g='git status'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr)%Creset" --abbrev-commit --date=relative'
 alias gb='git checkout -b'
+function gm() {
+  git merge $1 --no-ff
+}
 function gc() {
   git commit -v -a -m "$*"
 }
