@@ -18,4 +18,9 @@ map <F5> :!ruby %<CR>
 syntax on 
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
+" Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+
 
