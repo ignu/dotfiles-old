@@ -1,3 +1,4 @@
 export EDITOR="mate -w"
 export PATH=$PATH:~/bin
 alias ss="./script/server"
+if [[ -s /Users/ignu/.rvm/scripts/rvm ]] ; then source /Users/ignu/.rvm/scripts/rvm ; fi

@@ -3,9 +3,11 @@ alias cpu='top -o cpu'
 alias mem='top -o vsize'
 alias ..="cd .."
 alias reload="source ~/bin/dotfiles/bashrc"
+alias dotfiles="mate ~/bin/dotfiles/"
 
 # RUBY
 alias gemi="sudo gem install --no-rdoc --no-ri"
+alias c='cucumber'
 
 # GIT
 alias g='git status'
