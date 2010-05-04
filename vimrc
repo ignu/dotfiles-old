@@ -1,7 +1,9 @@
+
+"Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+"Set Invisibles like TextMate
 set listchars=tab:▸\ ,eol:¬
-
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -10,6 +12,10 @@ set number
 set columns=140
 set guioptions-=r
 set gfn=Monaco
+
+" UTF-8 All the way
+scriptencoding utf-8
+
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -21,6 +27,3 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-
-
