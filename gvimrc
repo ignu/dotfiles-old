@@ -2,7 +2,8 @@
 set guioptions-=T 
 set guifont=Monaco:h12
 set antialias
-
+" Go to full width and height in full screen mode.
+set fuoptions=maxvert,maxhorz   
 set transparency=3
 " Don't highlight search result.
   set nohlsearch

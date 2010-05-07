@@ -13,6 +13,12 @@ set columns=140
 set guioptions-=r
 set gfn=Monaco
 
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 " UTF-8 All the way
 scriptencoding utf-8
 
