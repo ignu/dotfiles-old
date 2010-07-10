@@ -7,7 +7,7 @@ alias dotfiles="mate ~/bin/dotfiles/"
 
 # RUBY
 alias gemi="sudo gem install --no-rdoc --no-ri"
-alias c='cucumber'
+alias c='cucumber -f pretty'
 
 # GIT
 alias g='git status'

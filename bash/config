@@ -1,26 +1,42 @@
-function minutes_since_last_commit {
-    now=`date +%s`
-    last_commit=`git log --pretty=format:'%at' -1`
-    seconds_since_last_commit=$((now-last_commit))
-    minutes_since_last_commit=$((seconds_since_last_commit/60))
-    echo $minutes_since_last_commit
+function __git_dirty {
+  git diff --quiet HEAD &>/dev/null
+  [ $? == 1 ] && echo "!"
 }
-grb_git_prompt() {
-    local g="$(__gitdir)"
-    if [ -n "$g" ]; then
-        local MINUTES_SINCE_LAST_COMMIT=`minutes_since_last_commit`
-        if [ "$MINUTES_SINCE_LAST_COMMIT" -gt 30 ]; then
-            local COLOR=${RED}
-        elif [ "$MINUTES_SINCE_LAST_COMMIT" -gt 10 ]; then
-            local COLOR=${YELLOW}
-        else
-            local COLOR=${GREEN}
-        fi
-        local SINCE_LAST_COMMIT="${COLOR}$(minutes_since_last_commit)m${NORMAL}"
-        # The __git_ps1 function inserts the current git branch where %s is
-        local GIT_PROMPT=`__git_ps1 "(%s|${SINCE_LAST_COMMIT})"`
-        echo ${GIT_PROMPT}
-    fi
+
+function __git_branch {
+  __git_ps1 "(%s)"
 }
-PS1="\W $(grb_git_prompt) \$ "
+
+function __my_rvm_ruby_version {
+  local gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
+  [ "$gemset" != "" ] && gemset="@$gemset"
+  local version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
+  [ "$version" == "1.8.7" ] && version=""
+  local full="$version$gemset"
+  [ "$full" != "" ] && echo "$full "
+}
+
+# via http://tammersaleh.com/posts/a-better-rvm-bash-prompt
+bash_prompt() {
+  local NONE="\[\033[0m\]" # unsets color to term's fg color
+
+  # regular colors
+  local K="\[\033[0;30m\]" # black
+  local R="\[\033[0;31m\]" # red
+  local G="\[\033[0;32m\]" # green
+  local Y="\[\033[0;33m\]" # yellow
+  local B="\[\033[0;34m\]" # blue
+  local M="\[\033[0;35m\]" # magenta
+  local C="\[\033[0;36m\]" # cyan
+  local W="\[\033[0;37m\]" # white
+
+  local UC=$W # user's color
+  [ $UID -eq "0" ] && UC=$R # root's color
+
+  PS1="$W\$(__my_rvm_ruby_version)$R\w $Y\$(__git_branch)$R\$(__git_dirty)${NONE}$ "
+}
+
+bash_prompt
+unset bash_prompt
+
 

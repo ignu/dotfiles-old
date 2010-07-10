@@ -1,10 +1,10 @@
-# remove toolbar
-set guioptions-=T 
-set guifont=Monaco:h12
-set antialias
+  set guioptions-=T 
+  set guifont=Monaco:h12
+  set antialias
 " Go to full width and height in full screen mode.
-set fuoptions=maxvert,maxhorz   
-set transparency=3
+  set fuoptions=maxvert,maxhorz   
+  set transparency=3
+
 " Don't highlight search result.
   set nohlsearch
 
@@ -43,8 +43,7 @@ set transparency=3
   vmap <D-[> <<
   imap <D-[> <C-O><<
 
-# setup peepcode toolbar
-if has("gui_macvim")
-   macmenu &File.New\ Tab key=<nop>
-   map <D-t> <Plug>PeepOpen
-end
+ if has("gui_macvim")
+    macmenu &File.New\ Tab key=<nop>
+    map <D-t> <Plug>PeepOpen
+ end
