@@ -1,13 +1,18 @@
+call pathogen#runtime_append_all_bundles() 
+set nobackup       
+set nowritebackup 
+set noswapfile   
 
+set autoindent 
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 "Set Invisibles like TextMate
 set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
 
-color blackboard
+highlight SpecialKey guifg=#4a4a59
+color VividChalk
 set number
 set columns=140
 set guioptions-=r
@@ -34,5 +39,33 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+"Command j to buffer back
+map <D-j> :b#<CR>
+
+" autocomplete
+map <Tab> <C-N>
+map <C-P> O<ESC>P
 set wildmode=list:longest
+set wildchar=<Tab> wildmenu wildmode=full
+
+nmap <Leader>O O<ESC>
+nmap <Leader>o o<ESC>
 map <Leader>t :FuzzyFinderFile<Enter>
+
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader># :set number<CR> 
+nmap <leader>n :set nonumber<CR> 
+
+" rails.vim awesome
+"""""""""""""""""""""""
+" go to alternate file
+  nmap <Leader> a :A 
+
+autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+hi Folded	ctermfg=darkgrey ctermbg=NONE
+hi Folded	ctermfg=darkgrey ctermbg=NONE
