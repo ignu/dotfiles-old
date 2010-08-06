@@ -3,6 +3,7 @@ set nobackup
 set nowritebackup 
 set noswapfile   
 
+
 set autoindent 
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -15,6 +16,7 @@ highlight SpecialKey guifg=#4a4a59
 color VividChalk
 set number
 set columns=140
+set guioptions-=e
 set guioptions-=r
 set gfn=Monaco
 
