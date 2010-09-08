@@ -1,3 +1,9 @@
+# ignore duplicates
+HISTCONTROL=ignoreboth
+# let bash remember so i don't have to
+HISTSIZE=5000
+
+
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null
   [ $? == 1 ] && echo "!"

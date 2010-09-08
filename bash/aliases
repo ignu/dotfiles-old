@@ -3,11 +3,13 @@ alias cpu='top -o cpu'
 alias mem='top -o vsize'
 alias ..="cd .."
 alias ...="cd ../.."
-alias kuwest="cd ~/code/megatron"
+alias kuwest="cd ~/code/kuwest"
 alias reload="source ~/bin/dotfiles/bashrc"
 alias dotfiles="mate ~/bin/dotfiles/"
+alias code="cd ~/code"
 
 # RUBY
+alias r="rails"
 alias gemi="sudo gem install --no-rdoc --no-ri"
 alias cdrop='rake db:drop:all && rake db:migrate && rake features'
 alias c='cucumber -f pretty'

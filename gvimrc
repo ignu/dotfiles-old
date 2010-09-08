@@ -5,7 +5,7 @@
 
 " Go to full width and height in full screen mode.
   set fuoptions=maxvert,maxhorz   
-  set transparency=19
+  set transparency=9
   set go-=L
 
 " Don't highlight search result.
