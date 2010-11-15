@@ -1,11 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/ignu/bin/dotfiles/.oh-my-zsh/themes'
-let g:netrw_dirhist_2='/Users/ignu/code/crowdtap'
-let g:netrw_dirhist_3='/Users/ignu/code/crowdtap/doc'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/ignu/code/crowdtap'
+let g:netrw_dirhist_2='/Users/ignu/code/crowdtap/app'
+let g:netrw_dirhist_3='/Users/ignu/code/crowdtap/app/models'
 let g:netrw_dirhist_4='/Users/ignu/code/crowdtap'
-let g:netrw_dirhist_5='/Users/ignu/code/crowdtap/app'
-let g:netrw_dirhist_6='/Users/ignu/code/crowdtap/app/models'
-let g:netrw_dirhist_7='/Users/ignu/code/crowdtap'
-let g:netrw_dirhist_8='/Users/ignu/code/crowdtap/doc'
-let g:netrw_dirhist_9='/Users/ignu'

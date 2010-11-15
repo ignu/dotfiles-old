@@ -13,7 +13,7 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 
 highlight SpecialKey guifg=#4a4a59
-color VividChalk
+color vydark
 set number
 set columns=140
 set guioptions-=e
@@ -86,3 +86,6 @@ map <Leader>r :bd<CR>
 
 " git blame
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" autoindent is good
+filetype plugin indent on
