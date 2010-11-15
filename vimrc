@@ -1,9 +1,10 @@
-call pathogen#runtime_append_all_bundles() 
-set nobackup       
-set nowritebackup 
-set noswapfile   
+call pathogen#runtime_append_all_bundles()
+set nobackup
+set nowritebackup
+set noswapfile
 
-set autoindent 
+
+set autoindent
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
@@ -12,12 +13,12 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 
 highlight SpecialKey guifg=#4a4a59
-color vydark
+color VividChalk
 set number
 set columns=140
 set guioptions-=e
 set guioptions-=r
-set gfn=Two2Tango
+set gfn=Monaco
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -31,9 +32,9 @@ scriptencoding utf-8
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-set vb t_vb= 
+set vb t_vb=
 map <F5> :!ruby %<CR>
-syntax on 
+syntax on
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 " Store temporary files in a central spot
@@ -59,14 +60,29 @@ endif
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader># :set number<CR> 
-nmap <leader>n :set nonumber<CR> 
+nmap <leader># :set number<CR>
+nmap <leader>n :set nonumber<CR>
 
 " rails.vim awesome
 """""""""""""""""""""""
 " go to alternate file
-  nmap <Leader> a :A 
+nmap <Leader> a :A
 
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-hi Folded	ctermfg=darkgrey ctermbg=NONE
-hi Folded	ctermfg=darkgrey ctermbg=NONE
+hi Folded ctermfg=darkgrey ctermbg=NONE
+hi Folded ctermfg=darkgrey ctermbg=NONE
+
+" Hide search highlighting
+map <Leader>h :set invhls <CR>
+
+" show trailing whitespace
+set list listchars=tab:»·,trail:
+
+" remove trailing whitespace and replace tabs with spaces
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
+" buffer delete
+map <Leader>r :bd<CR>
+
+" git blame
+vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
