@@ -3,7 +3,6 @@ set nobackup
 set nowritebackup 
 set noswapfile   
 
-
 set autoindent 
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -13,12 +12,12 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 
 highlight SpecialKey guifg=#4a4a59
-color VividChalk
+color vydark
 set number
 set columns=140
 set guioptions-=e
 set guioptions-=r
-set gfn=Monaco
+set gfn=Two2Tango
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>

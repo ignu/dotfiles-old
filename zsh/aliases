@@ -1,0 +1,29 @@
+alias cpu='top -o cpu'
+alias mem='top -o vsize'
+alias pa="ps aux | grep "
+
+alias ealias='vim ~/bin/dotfiles/zsh/aliases'
+alias eenv='vim ~/bin/dotfiles/zsh/env'
+
+alias ss="script/server"
+alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump && rake db:test:prepare"
+alias tf="ruby_test functional"
+alias tu="ruby_test unit"
+#alias sc="TEST=spec ruby_test controllers"
+#alias sm="TEST=spec ruby_test models"
+
+# override script console wherever it is
+alias sc="~/bin/sc" 
+alias current_ruby="which ruby gem irb rake"
+alias do_it="rake git:push:staging && cap staging deploy"
+alias do_it_live="rake git:push:production && cap production deploy"
+
+# GIT
+alias g='git status'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr)%Creset" --abbrev-commit --date=relative'
+alias gb='git checkout -b'
+function gbt() {
+  git branch --track $2 remotes/$1/$2
+  git checkout $2
+}
+

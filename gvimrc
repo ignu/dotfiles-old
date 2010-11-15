@@ -5,7 +5,7 @@
 
 " Go to full width and height in full screen mode.
   set fuoptions=maxvert,maxhorz   
-  set transparency=9
+  set transparency=0
   set go-=L
 
 " Don't highlight search result.
@@ -18,7 +18,6 @@
   " make peepopen nice
   imap <D-t> <Esc><D-t>
   imap <D-T> <Esc><D-T>
-
 
 " TABS: safari style tab navigation
   nmap <D-[> :tabprevious<CR>
@@ -62,4 +61,4 @@
     macmenu &File.New\ Tab key=<nop>
     map <D-t> <Plug>PeepOpen
  end
-call pathogen#runtime_append_all_bundles() 
+call pathogen#runtime_append_all_bundles()
