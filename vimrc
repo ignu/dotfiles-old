@@ -3,7 +3,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
 set autoindent
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -34,6 +33,7 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 set vb t_vb=
 map <F5> :!ruby %<CR>
+
 syntax on
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
@@ -43,6 +43,19 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "Command j to buffer back
 map <D-j> :b#<CR>
+map <D-r> :bd<CR>
+nmap <Leader>r :bd<CR>
+map <D-e> :Ex<CR>
+map <D-y> :Vex<CR><C-w>=
+map <D-]> :vsp<CR>
+map <D-[> :sp<CR>
+map <D-\> :tabnew<CR>
+let g:LustyJugglerSuppressRubyWarning = 1
+map <Leader>m :LustyJuggler<CR>
+map <D-m> :LustyJuggler<CR>
+
+"next quickfix
+map <D-'> :cnext<CR>
 
 " autocomplete
 map <Tab> <C-N>
@@ -52,7 +65,6 @@ set wildchar=<Tab> wildmenu wildmode=full
 
 nmap <Leader>O O<ESC>
 nmap <Leader>o o<ESC>
-map <Leader>t :FuzzyFinderFile<Enter>
 
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -66,7 +78,6 @@ nmap <leader>n :set nonumber<CR>
 " rails.vim awesome
 """""""""""""""""""""""
 " go to alternate file
-nmap <Leader> a :A
 
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 hi Folded ctermfg=darkgrey ctermbg=NONE
@@ -89,3 +100,17 @@ vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 
 " autoindent is good
 filetype plugin indent on
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
