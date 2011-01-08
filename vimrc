@@ -1,23 +1,26 @@
 call pathogen#runtime_append_all_bundles()
+
 set nobackup
 set nowritebackup
 set noswapfile
 
 set autoindent
+"
 "Make Tabs Pretty
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 "Set Invisibles like TextMate
 set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
-
 highlight SpecialKey guifg=#4a4a59
-color vydark
+
+color herald
+
 set number
-set columns=140
+"
+"set columns=140
 set guioptions-=e
 set guioptions-=r
-set gfn=Monaco
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -32,7 +35,7 @@ let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 set vb t_vb=
-map <F5> :!ruby %<CR>
+"map <F5> :!ruby %<CR>
 
 syntax on
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
@@ -50,15 +53,18 @@ map <D-y> :Vex<CR><C-w>=
 map <D-]> :vsp<CR>
 map <D-[> :sp<CR>
 map <D-\> :tabnew<CR>
-let g:LustyJugglerSuppressRubyWarning = 1
-map <Leader>m :LustyJuggler<CR>
-map <D-m> :LustyJuggler<CR>
 
-"next quickfix
+" minibuffexplorer
+map <Leader>e :MiniBufExplorer<CR>
+map <Leader>E :CMiniBufExplorer<CR>
+let g:miniBufExplSplitBelow=1  " Put new window above
+
+
+"next quickfix file
 map <D-'> :cnext<CR>
 
 " autocomplete
-map <Tab> <C-N>
+imap <Tab> <C-N>
 map <C-P> O<ESC>P
 set wildmode=list:longest
 set wildchar=<Tab> wildmenu wildmode=full
@@ -100,6 +106,8 @@ vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 
 " autoindent is good
 filetype plugin indent on
+
+runtime macros/matchit.vim
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
