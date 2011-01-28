@@ -23,10 +23,10 @@ set guioptions-=e
 set guioptions-=r
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+"nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+"nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " UTF-8 All the way
 scriptencoding utf-8
@@ -55,10 +55,10 @@ map <D-[> :sp<CR>
 map <D-\> :tabnew<CR>
 
 " minibuffexplorer
-map <Leader>e :MiniBufExplorer<CR>
-map <Leader>E :CMiniBufExplorer<CR>
+map <Leader>g :TMiniBufExplorer<CR>
 let g:miniBufExplSplitBelow=1  " Put new window above
-
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplForceSyntaxEnable = 1
 
 "next quickfix file
 map <D-'> :cnext<CR>
@@ -92,6 +92,7 @@ hi Folded ctermfg=darkgrey ctermbg=NONE
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
+map <Leader>m :!mvim % <CR>
 " show trailing whitespace
 set list listchars=tab:»·,trail:
 
