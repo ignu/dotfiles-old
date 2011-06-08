@@ -90,10 +90,6 @@ nmap <leader># :set number<CR>
 nmap <leader>n :set nonumber<CR>
 
 nmap <leader>j :e public/javascripts/application.js<CR>
-"
-" rails.vim awesome
-"""""""""""""""""""""""
-" go to alternate file
 
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 hi Folded ctermfg=darkgrey ctermbg=NONE
@@ -144,4 +140,3 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-

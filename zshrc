@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="gozilla"
+export ZSH_THEME="cloud"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -16,13 +16,12 @@ export ZSH_THEME="gozilla"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git ruby rvm gem bundler)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 
 # ALIASES
 
@@ -65,10 +64,6 @@ export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 export RUBY_HEAP_FREE_MIN=100000
-
-
-#crowdtap
-deploycrowd='ey deploy -e crowdtap_staging -a crowdtap --ref master --migrate='\''rake mongoid:migrate'\'
 
 # autocompletion for cuc
 _cucumber_features() {
